@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ShowAPI_SDK'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'SDK for invoke api from www.showapi.com'
 
 # This description is used to generate tags and improve search results.
