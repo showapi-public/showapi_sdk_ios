@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-                     *SDK for www.showapi.com
+                     *Simple SDK for invoke api from www.showapi.com
                        DESC
 
   s.homepage         = 'https://github.com/bluedarker/ShowAPI_SDK'

@@ -48,8 +48,12 @@
    withCompletion:^(NSDictionary<NSString *,id> *result) {
        //打印返回结果
        
-        NSLog(@"返回结果为：%@",result);
-        
+       NSData *jsonData = [NSJSONSerialization dataWithJSONObject:result options:NSJSONWritingPrettyPrinted error:nil];
+       // NSData转为NSString
+       NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+       
+       NSLog(@"返回结果为：%@",jsonStr);
+       
         [expectation fulfill];
     } ];
     

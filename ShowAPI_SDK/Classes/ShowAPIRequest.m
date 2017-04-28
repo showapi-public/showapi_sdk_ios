@@ -50,6 +50,8 @@
         }
        
         
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //        NSLog(@"post成功 %@", responseObject);
         completion(responseObject);
