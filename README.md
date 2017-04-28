@@ -35,7 +35,7 @@ pod "ShowAPI_SDK"
 
 ```objective-c
 //创建请求实例
-//这里需要替换为你自己的appid和secret，你可以在这里找到[https://www.showapi.com/app/editApp](https://www.showapi.com/app/editApp)
+//这里需要替换为你自己的appid和secret，你可以在这里找到 https://www.showapi.com/app/editApp
 ShowAPIRequest *request=[[ShowAPIRequest alloc] initWithAppid:@"appid" andSign:@"secret" ];
 
 //调用彩票开奖查询api
@@ -63,9 +63,9 @@ NSURL *filePath = [[NSBundle mainBundle] URLForResource:@"showapi" withExtension
 NSData *imgData = [[NSData alloc] initWithContentsOfURL:filePath];
 //    NSLog(@"img is:%@",imgData);
 
+
 //创建请求实例
-//创建请求实例
-//这里需要替换为你自己的appid和secret，你可以在这里找到[https://www.showapi.com/app/editApp](https://www.showapi.com/app/editApp)
+//这里需要替换为你自己的appid和secret，你可以在这里找到 https://www.showapi.com/app/editApp
 ShowAPIRequest *request=[[ShowAPIRequest alloc] initWithAppid:@"appid" andSign:@"secret" ];
 
 //验证码识别api
