@@ -29,38 +29,46 @@
     bool hasFile=!(fileParams==nil||[fileParams count]==0);
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    if(hasFile){
-        [manager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
-    }else{
-       [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    }
+    
     
     manager.requestSerializer.timeoutInterval=timeout;
         
     manager.responseSerializer.acceptableContentTypes= [NSSet setWithObjects:@"application/json",@"text/html", nil];
     
    
-    [manager POST:url parameters:[self createSecretParam:params] constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-        if(hasFile){
+    if(hasFile){
+        [manager POST:url parameters:[self createSecretParam:params] constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            
             for(NSString *key in fileParams){
-              
+                
                 [formData appendPartWithFileData:fileParams[key] name:key fileName:key mimeType:@"image/*"];
             }
-        }
-       
-        
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"post成功 %@", responseObject);
-        completion(responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-//        NSLog(@"post失败 %@", error);
-        completion([[NSDictionary<NSString*,id> alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"showapi_res_code",[error debugDescription],@"showapi_res_error", nil]);
-    }];
+            
+            
+            
+        } progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            //        NSLog(@"post成功 %@", responseObject);
+            completion(responseObject);
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            //        NSLog(@"post失败 %@", error);
+            completion([[NSDictionary<NSString*,id> alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"showapi_res_code",[error debugDescription],@"showapi_res_error", nil]);
+        }];
+    }else{
+        [manager POST:url parameters:[self createSecretParam:params]
+              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                  //        NSLog(@"post成功 %@", responseObject);
+                  completion(responseObject);
+                  
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                  
+                  //        NSLog(@"post失败 %@", error);
+                  completion([[NSDictionary<NSString*,id> alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:-1],@"showapi_res_code",[error debugDescription],@"showapi_res_error", nil]);
+              }];
+    }
 }
 
 -(void)post:(NSString*)url timeout:(int)timeout params:(NSDictionary<NSString*,NSString*>*) params  withCompletion:(void (^)(NSDictionary<NSString*,id>*))completion{
