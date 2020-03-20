@@ -1,4 +1,4 @@
-# ShowAPI_SDK
+# showapi_sdk_ios
 
 [![CI Status](http://img.shields.io/travis/bluedarker/ShowAPI_SDK.svg?style=flat)](https://travis-ci.org/bluedarker/ShowAPI_SDK)
 [![Version](https://img.shields.io/cocoapods/v/ShowAPI_SDK.svg?style=flat)](http://cocoapods.org/pods/ShowAPI_SDK)
