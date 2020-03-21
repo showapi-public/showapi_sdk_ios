@@ -106,7 +106,7 @@ ShowAPIRequest *request=[[ShowAPIRequest alloc] initWithAppid:@"appid" andSign:@
 //验证码识别api
 [request post:@"https://route.showapi.com/887-4"//二维码识别接口地址
 timeout:20000//超时设置为20秒
-params:[[NSDictionary<NSString*,NSString*> alloc] initWithObjectsAndKeys:@"1",@"handleImg",@"encodedImageStr",@"imgData", nil] //普通传入参数
+params:[[NSDictionary<NSString*,NSString*> alloc] initWithObjectsAndKeys:@"1",@"handleImg",encodedImageStr,@"imgData", nil] //普通传入参数
 withCompletion:^(NSDictionary<NSString *,id> *result) {
 //打印返回结果
 
