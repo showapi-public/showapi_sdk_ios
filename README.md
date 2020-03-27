@@ -39,7 +39,7 @@ pod "ShowAPI_SDK"
 //这里需要替换为你自己的appid和secret，你可以在这里找到 https://www.showapi.com/console#/myApp
 ShowAPIRequest *request=[[ShowAPIRequest alloc] initWithAppid:@"appid" andSign:@"secret" ];
 
-//调用彩票开奖查询api
+//调用全球IP归属地查询api
 [request post:@"https://route.showapi.com/20-1"//IP归属地查询接入点的接口url，
 timeout:20000//超时设置为20秒
 params:[[NSDictionary<NSString*,NSString*> alloc] initWithObjectsAndKeys:@"116.4.201.181",@"ip", nil]//传入ip
