@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ShowAPI_SDK'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'SDK for invoke api from www.showapi.com'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
                      *Simple SDK for invoke api from www.showapi.com
                        DESC
 
-  s.homepage         = 'https://github.com/bluedarker/ShowAPI_SDK'
+  s.homepage         = 'https://github.com/showapi-public/showapi_sdk_ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'bluedarker' => 'bluedarker@gmail.com' }
-  s.source           = { :git => 'https://github.com/bluedarker/ShowAPI_SDK.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/showapi-public/showapi_sdk_ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
@@ -38,5 +38,8 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-    s.dependency 'AFNetworking', '~> 3.0'
+    s.dependency 'AFNetworking/Serialization', '~> 3.2.1'
+    s.dependency 'AFNetworking/Security', '~> 3.2.1'
+    s.dependency 'AFNetworking/NSURLSession', '~> 3.2.1'
+    s.dependency 'AFNetworking/Reachability', '~> 3.2.1'
 end

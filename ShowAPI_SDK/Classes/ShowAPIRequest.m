@@ -1,6 +1,6 @@
 #import "ShowAPIRequest.h"
 #import <CommonCrypto/CommonDigest.h>
-#import "AFNetworking.h"
+#import "AFNetworking-umbrella.h"
 #define CC_MD5_DIGEST_LENGTH 16
 
 @interface ShowAPIRequest()
